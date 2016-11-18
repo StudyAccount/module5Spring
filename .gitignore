@@ -2,5 +2,6 @@
 .idea/*
 *.xml
 !pom.xml
+!application-context.xml
 *.iml
 target/*
