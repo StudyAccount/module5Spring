@@ -8,9 +8,10 @@ import java.util.List;
 /**
  * Created by User on 19.11.2016.
  */
+
 public class MultiplicationLong implements Multiplication {
 
-    BigInteger result = BigInteger.ZERO;
+    BigInteger result = BigInteger.ONE;
     SupportedType supportedType;
 
     @Override

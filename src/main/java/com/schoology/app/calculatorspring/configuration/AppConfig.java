@@ -9,6 +9,7 @@ import com.schoology.app.calculatorlibrary.operations.SubtractionLong;
 import com.schoology.app.calculatorlibrary.registry.Registry;
 import com.schoology.app.calculatorlibrary.types.DoubleSupportedType;
 import com.schoology.app.calculatorlibrary.types.LongSupportedType;
+import com.schoology.app.calculatorspring.operations.MultiplicationDouble;
 import com.schoology.app.calculatorspring.operations.MultiplicationLong;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,10 +41,12 @@ public class AppConfig {
         registry.addNewOperation(subtractionDouble());
         registry.addNewOperation(subtractionLong());
         registry.addNewOperation(multiplicationLong(longSupportedType()));
+        registry.addNewOperation(multiplicationDouble(doubleSupportedType()));
         return registry;
     }
 
     @Bean
+    @Scope("prototype")
     public DoubleSupportedType doubleSupportedType(){
 
         return new DoubleSupportedType();
@@ -88,6 +91,11 @@ public class AppConfig {
         return multiplicationLong;
     }
 
+    public MultiplicationDouble multiplicationDouble(DoubleSupportedType doubleSupportedType){
+        MultiplicationDouble multiplicationDouble = new MultiplicationDouble();
+        multiplicationDouble.setSupportedType(doubleSupportedType);
 
+        return multiplicationDouble;
+    }
 
 }
