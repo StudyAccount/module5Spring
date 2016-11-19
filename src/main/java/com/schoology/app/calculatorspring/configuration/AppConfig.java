@@ -2,11 +2,14 @@ package com.schoology.app.calculatorspring.configuration;
 
 import com.schoology.app.calculatorlibrary.calculator.Calculator;
 import com.schoology.app.calculatorlibrary.calculator.SimpleCalculator;
-import com.schoology.app.calculatorlibrary.operations.*;
+import com.schoology.app.calculatorlibrary.operations.AdditionDouble;
+import com.schoology.app.calculatorlibrary.operations.AdditionLong;
+import com.schoology.app.calculatorlibrary.operations.SubtractionDouble;
+import com.schoology.app.calculatorlibrary.operations.SubtractionLong;
 import com.schoology.app.calculatorlibrary.registry.Registry;
 import com.schoology.app.calculatorlibrary.types.DoubleSupportedType;
 import com.schoology.app.calculatorlibrary.types.LongSupportedType;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+import com.schoology.app.calculatorspring.operations.MultiplicationLong;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -36,6 +39,7 @@ public class AppConfig {
         registry.addNewOperation(additionLong());
         registry.addNewOperation(subtractionDouble());
         registry.addNewOperation(subtractionLong());
+        registry.addNewOperation(multiplicationLong(longSupportedType()));
         return registry;
     }
 
@@ -46,6 +50,7 @@ public class AppConfig {
     }
 
     @Bean
+    @Scope("prototype")
     public LongSupportedType longSupportedType(){
 
         return new LongSupportedType();
@@ -73,6 +78,14 @@ public class AppConfig {
     public SubtractionLong subtractionLong(){
 
         return new SubtractionLong();
+    }
+
+    @Bean
+    public MultiplicationLong multiplicationLong(LongSupportedType longSupportedType){
+
+        MultiplicationLong multiplicationLong = new MultiplicationLong();
+        multiplicationLong.setSupportedType(longSupportedType);
+        return multiplicationLong;
     }
 
 

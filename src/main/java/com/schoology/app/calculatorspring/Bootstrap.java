@@ -7,7 +7,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;
-import java.util.StringJoiner;
 
 /**
  * Created by User on 13.11.2016.
@@ -40,7 +39,5 @@ public class Bootstrap {
         }
 
         return null;
-
     }
-
 }
