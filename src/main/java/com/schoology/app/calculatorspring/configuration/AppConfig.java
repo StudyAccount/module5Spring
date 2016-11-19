@@ -9,6 +9,8 @@ import com.schoology.app.calculatorlibrary.operations.SubtractionLong;
 import com.schoology.app.calculatorlibrary.registry.Registry;
 import com.schoology.app.calculatorlibrary.types.DoubleSupportedType;
 import com.schoology.app.calculatorlibrary.types.LongSupportedType;
+import com.schoology.app.calculatorspring.operations.DivisionDouble;
+import com.schoology.app.calculatorspring.operations.DivisionLong;
 import com.schoology.app.calculatorspring.operations.MultiplicationDouble;
 import com.schoology.app.calculatorspring.operations.MultiplicationLong;
 import org.springframework.context.annotation.Bean;
@@ -42,6 +44,8 @@ public class AppConfig {
         registry.addNewOperation(subtractionLong());
         registry.addNewOperation(multiplicationLong(longSupportedType()));
         registry.addNewOperation(multiplicationDouble(doubleSupportedType()));
+        registry.addNewOperation(divisionLong(longSupportedType()));
+        registry.addNewOperation(divisionDouble(doubleSupportedType()));
         return registry;
     }
 
@@ -91,11 +95,27 @@ public class AppConfig {
         return multiplicationLong;
     }
 
+    @Bean
     public MultiplicationDouble multiplicationDouble(DoubleSupportedType doubleSupportedType){
+
         MultiplicationDouble multiplicationDouble = new MultiplicationDouble();
         multiplicationDouble.setSupportedType(doubleSupportedType);
-
         return multiplicationDouble;
     }
 
+    @Bean
+    public DivisionLong divisionLong(LongSupportedType longSupportedType){
+
+        DivisionLong divisionLong = new DivisionLong();
+        divisionLong.setSupportedType(longSupportedType);
+        return divisionLong;
+    }
+
+    @Bean
+    public DivisionDouble divisionDouble(DoubleSupportedType doubleSupportedType){
+
+        DivisionDouble divisionDouble = new DivisionDouble();
+        divisionDouble.setSupportedType(doubleSupportedType);
+        return divisionDouble;
+    }
 }
