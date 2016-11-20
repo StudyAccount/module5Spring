@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class MultiplicationDouble implements Multiplication {
 
-    BigDecimal result = BigDecimal.ONE;
-    SupportedType supportedType;
+    private BigDecimal result = BigDecimal.ONE;
+    private SupportedType supportedType;
 
     @Override
     public String count(List<String> inputData) {

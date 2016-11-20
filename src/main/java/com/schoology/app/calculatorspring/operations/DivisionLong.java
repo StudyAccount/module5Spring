@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class DivisionLong implements Division {
 
-    BigDecimal result = BigDecimal.ZERO;
-    SupportedType supportedType;
+    private BigDecimal result = BigDecimal.ZERO;
+    private SupportedType supportedType;
 
     @Override
     public String count(List<String> inputData) {

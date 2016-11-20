@@ -11,8 +11,8 @@ import java.util.List;
 
 public class MultiplicationLong implements Multiplication {
 
-    BigInteger result = BigInteger.ONE;
-    SupportedType supportedType;
+    private BigInteger result = BigInteger.ONE;
+    private SupportedType supportedType;
 
     @Override
     public String count(List<String> inputData) {
