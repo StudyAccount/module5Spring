@@ -3,6 +3,7 @@ package com.schoology.app.calculatorspring.operations;
 import com.schoology.app.calculatorlibrary.types.SupportedType;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public class DivisionDouble implements Division {
                 if (supportedType.checkType(element) == true) {
                     double termDouble = Double.parseDouble(element);
                     BigDecimal termBigDecimal = BigDecimal.valueOf(termDouble);
-                    result = result.divide(termBigDecimal);
+                    result = result.divide(termBigDecimal, 20, RoundingMode.HALF_UP);
                 }
 
             }catch (ArithmeticException ex){

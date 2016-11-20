@@ -15,7 +15,6 @@ import com.schoology.app.calculatorspring.operations.MultiplicationDouble;
 import com.schoology.app.calculatorspring.operations.MultiplicationLong;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 /**
  * Created by User on 13.11.2016.
@@ -25,7 +24,6 @@ import org.springframework.context.annotation.Scope;
 public class AppConfig {
 
     @Bean
-    @Scope("prototype")
     public Calculator calculator(Registry registry){
         SimpleCalculator simpleCalculator = new SimpleCalculator();
         simpleCalculator.setRegistry(registry);
@@ -50,14 +48,12 @@ public class AppConfig {
     }
 
     @Bean
-    @Scope("prototype")
     public DoubleSupportedType doubleSupportedType(){
 
         return new DoubleSupportedType();
     }
 
     @Bean
-    @Scope("prototype")
     public LongSupportedType longSupportedType(){
 
         return new LongSupportedType();
